@@ -154,7 +154,7 @@ export default function About() {
                   href="https://aclanthology.org/2025.dravidianlangtech-1.65.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-black/30 border border-white/10 rounded-xl p-6 text-left shadow-md hover:bg-[#ff4ecb]/20 hover:shadow-pink transition duration-300 block h-full min-h-[300px] flex flex-col justify-between"
+                  className="bg-black/30 border border-white/10 rounded-xl p-6 text-left shadow-md hover:bg-[#ff4ecb]/20 hover:shadow-pink transition duration-300 h-full min-h-[300px] flex flex-col justify-between"
                 >
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-1">Detecting AI-Written Reviews for Consumer Trust</h4>
@@ -171,7 +171,7 @@ export default function About() {
                   href="https://drive.google.com/file/d/1OEjLFGhmXnQvvbomXkysJTsxfjXKVKQj/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-black/30 border border-white/10 rounded-xl p-6 text-left shadow-md hover:bg-[#ff4ecb]/20 hover:shadow-pink transition duration-300 block h-full min-h-[300px] flex flex-col justify-between"
+                  className="bg-black/30 border border-white/10 rounded-xl p-6 text-left shadow-md hover:bg-[#ff4ecb]/20 hover:shadow-pink transition duration-300 h-full min-h-[300px] flex flex-col justify-between"
                 >
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-1">Multi-Label Emotion Classification Using Fine-Tuned Roberta-Large Transformer</h4>

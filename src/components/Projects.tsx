@@ -72,7 +72,6 @@ export default function Projects() {
   return (
     <motion.div
       ref={ref}
-      as="section"
       id="projects"
       className="relative min-h-screen px-6 py-20 text-white"
       initial={{ opacity: 0, y: 100 }}
@@ -114,7 +113,15 @@ export default function Projects() {
               }}
               transition={{ duration: 0.6 }}
             >
-              <ProjectCard {...project} />
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                tech={project.tech}
+                link={project.link}
+                image={project.image}
+                status={project.status as 'in-progress' | undefined}
+              />
+
             </motion.div>
           ))}
         </motion.div>

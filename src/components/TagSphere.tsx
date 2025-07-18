@@ -5,7 +5,13 @@ import { OrbitControls, PerspectiveCamera, Text, useTexture } from "@react-three
 import { Suspense, useRef, useState } from "react";
 import * as THREE from "three";
 
-const techStack = [
+interface TechItem {
+  name: string;
+  category: string;
+  img: string;
+}
+
+const techStack: TechItem[] = [
   // Languages
   { name: "Python", category: "Languages", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
   { name: "Java", category: "Languages", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
@@ -46,8 +52,6 @@ const techStack = [
   // Cloud & DevOps
   { name: "Google Cloud", category: "DevOps", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
   { name: "Docker", category: "DevOps", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-  { name: "Prometheus", category: "DevOps", img: "https://upload.wikimedia.org/wikipedia/commons/3/38/Prometheus_software_logo.svg" },
-  { name: "Grafana", category: "DevOps", img: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Grafana_icon.svg" },
   { name: "Git", category: "DevOps", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "GitHub", category: "DevOps", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
 
@@ -55,7 +59,7 @@ const techStack = [
   { name: "Figma", category: "Design", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
 ];
 
-const categoryColors = {
+const categoryColors: Record<string, string> = {
   Languages: "#e74c3c",
   Frameworks: "#3498db", 
   ML: "#2ecc71",
@@ -66,16 +70,16 @@ const categoryColors = {
 
 const positionOnDNA = (index: number, total: number): [number, number, number] => {
   const turns = 5;
-  const length = 32; // Increased length for better separation
+  const length = 32;
   const angle = (index / total) * Math.PI * 2 * turns;
-  const x = (index / total) * length - length / 2; // Now using x for horizontal spread
-  const radius = 4; // Increased radius for better spacing
-  const y = Math.cos(angle) * radius; // Y and Z swapped for horizontal
+  const x = (index / total) * length - length / 2;
+  const radius = 4;
+  const y = Math.cos(angle) * radius;
   const z = Math.sin(angle) * radius;
   return [x, y, z];
 };
 
-const DNANode = ({ name, img, position}: { name: string; img: string; position: [number, number, number]; category: string }) => {
+const DNANode = ({ name, img, position, category }: { name: string; img: string; position: [number, number, number]; category: string }) => {
   const texture = useTexture(img);
   return (
     <group position={position}>
@@ -98,14 +102,13 @@ const DNAStrands = () => {
           const currentPos = positionOnDNA(i, techStack.length);
           const nextPos = positionOnDNA(i + 1, techStack.length);
           
-          // Calculate distance and create connecting line
           const distance = Math.sqrt(
             Math.pow(nextPos[0] - currentPos[0], 2) +
             Math.pow(nextPos[1] - currentPos[1], 2) +
             Math.pow(nextPos[2] - currentPos[2], 2)
           );
           
-          const midpoint = [
+          const midpoint: [number, number, number] = [
             (currentPos[0] + nextPos[0]) / 2,
             (currentPos[1] + nextPos[1]) / 2,
             (currentPos[2] + nextPos[2]) / 2
@@ -114,7 +117,7 @@ const DNAStrands = () => {
           const currentTech = techStack[i];
           const nextTech = techStack[i + 1];
           const connectionColor = currentTech.category === nextTech.category 
-            ? categoryColors[currentTech.category] 
+            ? categoryColors[currentTech.category] || "#555555"
             : "#555555"; 
           
           return (
@@ -144,8 +147,10 @@ const BackboneStrands = () => {
           const distance = point.distanceTo(nextPoint);
           const midpoint = point.clone().add(nextPoint).multiplyScalar(0.5);
           
+          const midpointArray: [number, number, number] = [midpoint.x, midpoint.y, midpoint.z];
+          
           return (
-            <mesh key={`backbone-${i}`} position={[midpoint.x, midpoint.y, midpoint.z]}>
+            <mesh key={`backbone-${i}`} position={midpointArray}>
               <cylinderGeometry args={[0.04, 0.04, distance, 6]} />
               <meshStandardMaterial color="#666666" transparent opacity={0.6} />
             </mesh>
@@ -221,7 +226,7 @@ const TechCards = () => {
     if (!acc[tech.category]) acc[tech.category] = [];
     acc[tech.category].push(tech);
     return acc;
-  }, {} as Record<string, typeof techStack[number][]>);
+  }, {} as Record<string, TechItem[]>);
 
   return (
     <div className="mt-8 px-4">
@@ -231,12 +236,12 @@ const TechCards = () => {
           <div 
             key={category} 
             className="bg-gray-800 rounded-xl p-6 border-l-4 hover:transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl"
-            style={{ borderLeftColor: categoryColors[category] }}
+            style={{ borderLeftColor: categoryColors[category] || "#555555" }}
           >
             <div className="flex items-center mb-4">
               <div 
                 className="w-4 h-4 rounded-full mr-3" 
-                style={{ backgroundColor: categoryColors[category] }}
+                style={{ backgroundColor: categoryColors[category] || "#555555" }}
               />
               <h3 className="text-xl font-bold text-white">{category}</h3>
             </div>
