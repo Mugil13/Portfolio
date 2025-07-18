@@ -64,15 +64,6 @@ const categoryColors = {
   Design: "#ff6b9d"
 };
 
-const categoryColorsLight = {
-  Languages: "#ff6b6b",
-  Frameworks: "#74b9ff", 
-  ML: "#55d17a",
-  Database: "#fdcb6e",
-  DevOps: "#a29bfe",
-  Design: "#ff8fab"
-};
-
 const positionOnDNA = (index: number, total: number): [number, number, number] => {
   const turns = 5;
   const length = 32; // Increased length for better separation
@@ -84,7 +75,7 @@ const positionOnDNA = (index: number, total: number): [number, number, number] =
   return [x, y, z];
 };
 
-const DNANode = ({ name, img, position, category }: { name: string; img: string; position: [number, number, number]; category: string }) => {
+const DNANode = ({ name, img, position}: { name: string; img: string; position: [number, number, number]; category: string }) => {
   const texture = useTexture(img);
   return (
     <group position={position}>
@@ -230,7 +221,7 @@ const TechCards = () => {
     if (!acc[tech.category]) acc[tech.category] = [];
     acc[tech.category].push(tech);
     return acc;
-  }, {} as Record<string, Array<any>>);
+  }, {} as Record<string, typeof techStack[number][]>);
 
   return (
     <div className="mt-8 px-4">

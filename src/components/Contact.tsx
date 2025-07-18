@@ -61,7 +61,7 @@ export default function Contact() {
                 overflow: 'hidden',
               }}
             >
-              {/* @ts-ignore: Web component */}
+              {/* @ts-expect-error: Web component */}
               <spline-viewer
                 url="https://prod.spline.design/pztO0v9CvhezPUyk/scene.splinecode"
                 style={{

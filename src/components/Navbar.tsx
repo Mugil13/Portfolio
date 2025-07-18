@@ -27,7 +27,7 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
         >
         <img src="/m-logo.png" alt="Logo" className="w-8 h-8 object-contain" />
-        Mugil's Portfolio
+        Mugil&apos;s Portfolio
         </motion.a>
 
         {/* Desktop nav */}
