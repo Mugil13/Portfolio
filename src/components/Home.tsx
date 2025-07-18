@@ -20,7 +20,7 @@ export default function HomeSection() {
 
       <section className="relative h-screen flex flex-col justify-center items-center pt-20 px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center z-10">
-          
+
           {/* Profile pic */}
           <motion.div
             className="flex justify-center"
@@ -28,19 +28,19 @@ export default function HomeSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-          <div className="w-80 h-80 rounded-full overflow-hidden border-2 border-white/20 transition-all duration-300 shadow-md hover:shadow-[0_0_20px_3px_rgba(255,255,255,0.3)] hover:border-white/40">
-          <Image
-            src="/profile4.jpg"
-            alt="Mugil"
-            width={1200}
-            height={1200}
-            className="object-cover w-full h-full"
-            priority
-          />
-          </div>
+            <div className="w-80 h-80 rounded-full overflow-hidden border-2 border-white/20 transition-all duration-300 shadow-md hover:shadow-[0_0_20px_3px_rgba(255,255,255,0.3)] hover:border-white/40">
+              <Image
+                src="/profile4.jpg"
+                alt="Mugil"
+                width={1200}
+                height={1200}
+                className="object-cover w-full h-full"
+                priority
+              />
+            </div>
           </motion.div>
 
-          {/* Type shi */}
+          {/* Typewriter Section */}
           <motion.div
             className="text-center md:text-left"
             initial={{ opacity: 0, x: 30 }}
@@ -48,7 +48,7 @@ export default function HomeSection() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Hey there, I'm <span className="cool-text-cyan">Mugil</span>
+              Hey there, I&apos;m <span className="cool-text-cyan">Mugil</span>
             </h1>
 
             <p className="text-xl md:text-2xl font-medium text-gray-300 mb-4">
@@ -66,7 +66,7 @@ export default function HomeSection() {
             {/* CTA Buttons */}
             <div className="mt-6 flex flex-wrap gap-4 justify-center md:justify-start items-center">
               <a href="#contact" className="cool-button px-6 py-2 rounded-full font-semibold">
-              Get in Touch
+                Get in Touch
               </a>
 
               <a href="#projects" className="cool-button-outline px-6 py-2 rounded-full font-semibold">

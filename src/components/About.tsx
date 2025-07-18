@@ -50,10 +50,10 @@ export default function About() {
             </h3>
             <div className="text-gray-300 text-lg md:text-xl space-y-4 max-w-4xl leading-relaxed">
               <p>
-                I'm Mugil — a final-year CSE undergraduate at SSN College of Engineering. I’m passionate about building and experimenting with <span className="cool-text-blue">Machine Learning</span> and <span className="cool-text-cyan">Deep Learning</span> models to tackle real-world problems. I also enjoy developing <span className="cool-text-orange">full-stack web applications</span> using the latest <span className="cool-text-purple">modern frameworks</span>.
+                I&apos;m Mugil — a final-year CSE undergraduate at SSN College of Engineering. I&apos;m passionate about building and experimenting with <span className="cool-text-blue">Machine Learning</span> and <span className="cool-text-cyan">Deep Learning</span> models to tackle real-world problems. I also enjoy developing <span className="cool-text-orange">full-stack web applications</span> using the latest <span className="cool-text-purple">modern frameworks</span>.
               </p>
               <p>
-                I’m driven by curiosity, growth, and collaboration — always eager to learn, evolve, and connect with people who share the same energy.
+                I&apos;m driven by curiosity, growth, and collaboration — always eager to learn, evolve, and connect with people who share the same energy.
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function About() {
         {/* Experience & Activities */}
         <div>
           <h3 className="text-3xl font-semibold mb-8" style={{ color: '#00ffe0' }}>
-            Experience & Activities
+            Experience &amp; Activities
           </h3>
 
           <div className="relative overflow-x-auto pb-6">
@@ -107,12 +107,12 @@ export default function About() {
                   title: 'SSN Math Club',
                   org: 'Event Head - Exlog',
                   date: 'Jan 2025 – Feb 2025',
-                  desc: 'Planned and led the "Rapid Fire" event with more than 70 participants. Handled everything from quiz preparation to anchoring the event, receiving strong feedback for smooth coordination',
+                  desc: 'Planned and led the &quot;Rapid Fire&quot; event with more than 70 participants. Handled everything from quiz preparation to anchoring the event, receiving strong feedback for smooth coordination',
                   logo: '/math-club.png',
                 },
                 {
                   title: 'ACE, SSN',
-                  org: 'Marketing & Logistics Core',
+                  org: 'Marketing &amp; Logistics Core',
                   date: 'Aug 2024 – Sep 2024',
                   desc: 'Assisted in budget planning, logistics, and student-focused marketing strategies for Invente ’24. Helped improve engagement and ensured smooth material procurement',
                   logo: '/ace.png',
@@ -145,7 +145,6 @@ export default function About() {
         </div>
 
         {/* Publications */}
-        {/* Add more once papers get published */}
         <div>
           <h3 className="text-3xl font-semibold mb-8" style={{ color: '#00aae0' }}>Publications</h3>
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
@@ -160,7 +159,7 @@ export default function About() {
                   <h4 className="text-lg font-semibold text-white mb-1">Detecting AI-Written Reviews for Consumer Trust</h4>
                   <p className="text-cool-text-blue text-sm mb-2">ACL · May 1, 2025</p>
                   <p className="text-gray-300 text-sm leading-relaxed">
-                     Published in DravidianLangTech@NAACL 2025, this paper addresses the rising challenge of AI-generated fake reviews in regional languages. Built a multilingual classification framework using mBERT to distinguish synthetic vs human-authored reviews in Tamil and Malayalam. Achieved <span className="font-bold text-green-400">F1-Score of 0.90</span> (10<sup>th</sup>) in Tamil and <span className="font-bold text-green-400">0.68</span> (28<sup>th</sup>) in Malayalam. Our work helps in content moderation and better conditions in online marketplaces
+                    Published in DravidianLangTech@NAACL 2025, this paper addresses the rising challenge of AI-generated fake reviews in regional languages. Built a multilingual classification framework using mBERT to distinguish synthetic vs human-authored reviews in Tamil and Malayalam. Achieved <span className="font-bold text-green-400">F1-Score of 0.90</span> (10<sup>th</sup>) in Tamil and <span className="font-bold text-green-400">0.68</span> (28<sup>th</sup>) in Malayalam. Our work helps in content moderation and better conditions in online marketplaces
                   </p>
                 </div>
               </a>
@@ -187,18 +186,15 @@ export default function About() {
 
         {/* Tech Helix */}
         <div id="tech">
-        <h3 className="text-3xl font-extrabold mb-6" style={{ color: '#c770ff' }}>
+          <h3 className="text-3xl font-extrabold mb-6" style={{ color: '#c770ff' }}>
             TECH STACK HELIX
-        </h3>
-        {/*<h4 className='text-2xl font-light mb-2' style={{color: '#c660aa'}}>
-            Play around with the helix
-        </h4>*/}          
-        <TechStack />
+          </h3>
+          <TechStack />
         </div>
 
         <div className="text-sm italic text-cool-text-blue font-large flex justify-center items-center gap-2">
           <Sparkles className="h-4 w-4 animate-ping-slow text-cool-text-purple" />
-          "Building one app at a time"
+          &quot;Building one app at a time&quot;
           <Sparkles className="h-4 w-4 animate-ping-slow text-cool-text-purple" />
         </div>
       </div>

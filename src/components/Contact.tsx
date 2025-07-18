@@ -1,12 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Instagram, MapPin } from 'lucide-react';
-import Spline from '@splinetool/react-spline';
 
 export default function Contact() {
   const [isSending, setIsSending] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.10.24/build/spline-viewer.js';
+    script.type = 'module';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <section
@@ -34,10 +44,7 @@ export default function Contact() {
           Open to internships, collaborations, projects or just talking shop about ML and Fintech topics
         </motion.p>
 
-        {/* Spline Globe */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-10 mt-14">
-
-
           <motion.div
             className="w-full md:w-1/2 h-[400px]"
             initial={{ opacity: 0, x: -40 }}
@@ -45,28 +52,28 @@ export default function Contact() {
             transition={{ duration: 0.7 }}
           >
             <div
-            className="pointer-events-auto select-none"
-            onWheel={(e) => e.preventDefault()}
-            style={{
-              width: '100%',
-              height: '100%',
-              maxHeight: '365px',
-              overflow: 'hidden',
-            }}
-          >
-            <spline-viewer
-              url="https://prod.spline.design/pztO0v9CvhezPUyk/scene.splinecode"
+              className="pointer-events-auto select-none"
+              onWheel={(e) => e.preventDefault()}
               style={{
-                width: '115%',
-                height: '115%',
-                background: 'transparent',
-                pointerEvents: 'auto',
+                width: '100%',
+                height: '100%',
+                maxHeight: '365px',
+                overflow: 'hidden',
               }}
-            />
-          </div>
+            >
+              {/* @ts-ignore: Web component */}
+              <spline-viewer
+                url="https://prod.spline.design/pztO0v9CvhezPUyk/scene.splinecode"
+                style={{
+                  width: '115%',
+                  height: '115%',
+                  background: 'transparent',
+                  pointerEvents: 'auto',
+                }}
+              />
+            </div>
           </motion.div>
 
-          {/* Contact form - maintain responses from formspree */}
           <motion.form
             action="https://formspree.io/f/mwpbjbla"
             method="POST"
@@ -120,7 +127,6 @@ export default function Contact() {
           </motion.form>
         </div>
 
-        {/* Social Links */}
         <div className="mt-16 flex flex-wrap justify-center gap-8 text-lg">
           <motion.a
             href="mailto:mugilkrishna.d.u@gmail.com"
@@ -161,7 +167,6 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Footer Divider */}
         <div className="mt-16">
           <motion.div
             className="w-[200px] h-[2px] mx-auto bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink"
@@ -172,8 +177,6 @@ export default function Contact() {
           <p className="mt-4 text-sm text-gray-400">Mugil © 2025</p>
         </div>
       </div>
-
-      <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.24/build/spline-viewer.js"></script>
     </section>
   );
 }
