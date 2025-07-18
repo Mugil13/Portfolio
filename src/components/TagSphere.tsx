@@ -79,7 +79,7 @@ const positionOnDNA = (index: number, total: number): [number, number, number] =
   return [x, y, z];
 };
 
-const DNANode = ({ name, img, position, category }: { name: string; img: string; position: [number, number, number]; category: string }) => {
+const DNANode = ({ name, img, position}: { name: string; img: string; position: [number, number, number]; category: string }) => {
   const texture = useTexture(img);
   return (
     <group position={position}>
