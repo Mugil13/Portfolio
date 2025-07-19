@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Instagram, MapPin } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 
 export default function Contact() {
   const [isSending, setIsSending] = useState(false);
@@ -53,15 +54,15 @@ export default function Contact() {
               overflow: 'hidden',
             }}
           >
-            <spline-viewer
-              url="https://prod.spline.design/pztO0v9CvhezPUyk/scene.splinecode"
+            
+            <Spline scene="https://prod.spline.design/pztO0v9CvhezPUyk/scene.splinecode"
               style={{
                 width: '115%',
                 height: '115%',
                 background: 'transparent',
                 pointerEvents: 'auto',
               }}
-            />
+              />
           </div>
           </motion.div>
 

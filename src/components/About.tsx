@@ -6,7 +6,7 @@ import TechStack from './TagSphere';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Tilt from 'react-parallax-tilt';
-import Script from 'next/script';
+import Spline from '@splinetool/react-spline';
 
 export default function About() {
   const [isMobile, setIsMobile] = useState(false);
@@ -60,16 +60,18 @@ export default function About() {
             </div>
 
             {/* Floating robot - X13 */}
+            
             {!isMobile && (
-              <div className="flex-1 max-w-md h-[800px] md:h-[500px] xl:h-[600px] rounded-xl overflow-hidden ml-40 relative">
-                <Script
-                  type="module"
-                  src="https://unpkg.com/@splinetool/viewer@1.10.22/build/spline-viewer.js"
-                />
-                <spline-viewer
-                  url="https://prod.spline.design/dGYL1d9eQFRgl4aw/scene.splinecode"
-                  style={{ width: '160%', height: '100%' }}
-                />
+              <div
+                className="flex-1 max-w-md h-[800px] md:h-[500px] xl:h-[600px] rounded-xl overflow-hidden ml-40 relative"
+                style={{
+                  transform: 'scale(2)', // scale it up
+                  transformOrigin: 'center',
+                  width: '100%',
+                  height: '100%',
+                }}
+              >
+                <Spline scene="https://prod.spline.design/dGYL1d9eQFRgl4aw/scene.splinecode" />
               </div>
             )}
           </div>
