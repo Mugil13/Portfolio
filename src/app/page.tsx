@@ -3,9 +3,8 @@ import HomeSection from '@/components/Home';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from '@vercel/analytics/react';
 
-/*Page functionnnn */
 export default function Page() {
   return (
     <>
@@ -16,6 +15,7 @@ export default function Page() {
         <Projects />
         <Contact />
       </main>
+      <Analytics /> 
     </>
   );
 }
